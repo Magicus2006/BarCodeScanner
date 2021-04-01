@@ -9,17 +9,28 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+class BarCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
-    var barCodeLable: UILabel!
+    var barCodeTextView: UITextView!
+    var typeBarCodeLable: UILabel!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        createUILableBarCode()
-        
-        view.backgroundColor = UIColor.white
+    func createUILableBarCode() {
+        barCodeTextView = UITextView(frame: CGRect(x:0, y: view.layer.frame.height-179, width: view.layer.frame.width, height: 96))
+        barCodeTextView.backgroundColor = UIColor.red
+        barCodeTextView.text = "I'm a test label. I'm a test label. I'm a test "
+        barCodeTextView.isEditable = false
+        self.view.addSubview(barCodeTextView)
+    }
+    
+    func createUILableTypeBarCode() {
+        typeBarCodeLable = UILabel(frame: CGRect(x:0, y: view.layer.frame.height-200, width: view.layer.frame.width, height: 21))
+        typeBarCodeLable.backgroundColor = UIColor.green
+        typeBarCodeLable.text = "Type Bar Code"
+        self.view.addSubview(typeBarCodeLable)
+    }
+    
+    func createBarCodeSessionCapture() {
         captureSession = AVCaptureSession()
 
         guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else { return }
@@ -55,17 +66,17 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         view.layer.addSublayer(previewLayer)
         
         captureSession.startRunning()
-        
     }
     
-    func createUILableBarCode() {
-        barCodeLable = UILabel(frame: CGRect(x:10, y: view.layer.frame.height-180, width: 200, height: 21))
-        //label.center = CGPointMake(160, 284)
-        //label.textAlignment = NSTextAlignment.Center
-        barCodeLable.text = "I'm a test label"
-        //view.layer.addSublayer(barCodeLable)
-        self.view.addSubview(barCodeLable)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        createUILableBarCode()
+        createUILableTypeBarCode()
+        createBarCodeSessionCapture()
     }
+    
+   
     
     func failed() {
         let ac = UIAlertController(title: "Scanning not supported", message: "Your device does not support scanning a code from an item. Please use a device with a camera.", preferredStyle: .alert)
@@ -75,39 +86,37 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("4")
         super.viewWillAppear(animated)
         if (captureSession?.isRunning == false) {
             captureSession.startRunning()
-            print("4.1")
         }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        print("5")
         if (captureSession?.isRunning == true) {
             captureSession.stopRunning()
         }
     }
 
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+        
         //captureSession.stopRunning()
-        print("6")
         if let metadataObject = metadataObjects.first {
             guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
             guard let stringValue = readableObject.stringValue else { return }
+            let type = metadataObject.type
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-            found(code: stringValue)
+            foundBarCode(code: stringValue, type: type.rawValue)
         }
 
         //dismiss(animated: true)
     }
 
-    func found(code: String) {
-        print("1.1")
-        print(code)
-        barCodeLable.text = code
+    func foundBarCode(code: String, type: String) {
+        print(code, type)
+        typeBarCodeLable.text = type
+        barCodeTextView.text = code
     }
 
     override var prefersStatusBarHidden: Bool {
@@ -117,6 +126,9 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
+    
+    
+    
     
 }
 

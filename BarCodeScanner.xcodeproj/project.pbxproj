@@ -7,19 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1416793826124E42001C2F54 /* BarCodeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1416793626124E42001C2F54 /* BarCodeModel.xcdatamodeld */; };
+		1416793B26127FCC001C2F54 /* HistoryBarCodeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1416793A26127FCC001C2F54 /* HistoryBarCodeTableViewController.swift */; };
+		141679452613DD77001C2F54 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141679442613DD77001C2F54 /* MyViewController.swift */; };
 		14F53C9F260676AE00C4B379 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F53C9E260676AE00C4B379 /* AppDelegate.swift */; };
 		14F53CA1260676AE00C4B379 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F53CA0260676AE00C4B379 /* SceneDelegate.swift */; };
-		14F53CA3260676AE00C4B379 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F53CA2260676AE00C4B379 /* ViewController.swift */; };
+		14F53CA3260676AE00C4B379 /* BarCodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F53CA2260676AE00C4B379 /* BarCodeScannerViewController.swift */; };
 		14F53CA6260676AE00C4B379 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14F53CA4260676AE00C4B379 /* Main.storyboard */; };
 		14F53CA8260676B000C4B379 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14F53CA7260676B000C4B379 /* Assets.xcassets */; };
 		14F53CAB260676B000C4B379 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14F53CA9260676B000C4B379 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1416793726124E42001C2F54 /* BarCodeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BarCodeModel.xcdatamodel; sourceTree = "<group>"; };
+		1416793A26127FCC001C2F54 /* HistoryBarCodeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryBarCodeTableViewController.swift; sourceTree = "<group>"; };
+		141679442613DD77001C2F54 /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 		14F53C9B260676AE00C4B379 /* BarCodeScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarCodeScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14F53C9E260676AE00C4B379 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14F53CA0260676AE00C4B379 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		14F53CA2260676AE00C4B379 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		14F53CA2260676AE00C4B379 /* BarCodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeScannerViewController.swift; sourceTree = "<group>"; };
 		14F53CA5260676AE00C4B379 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14F53CA7260676B000C4B379 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14F53CAA260676B000C4B379 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,6 +43,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1416793D2612881E001C2F54 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1416793A26127FCC001C2F54 /* HistoryBarCodeTableViewController.swift */,
+				14F53CA2260676AE00C4B379 /* BarCodeScannerViewController.swift */,
+				141679442613DD77001C2F54 /* MyViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		14F53C92260676AD00C4B379 = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +72,14 @@
 		14F53C9D260676AE00C4B379 /* BarCodeScanner */ = {
 			isa = PBXGroup;
 			children = (
+				1416793D2612881E001C2F54 /* Controller */,
 				14F53C9E260676AE00C4B379 /* AppDelegate.swift */,
 				14F53CA0260676AE00C4B379 /* SceneDelegate.swift */,
-				14F53CA2260676AE00C4B379 /* ViewController.swift */,
 				14F53CA4260676AE00C4B379 /* Main.storyboard */,
 				14F53CA7260676B000C4B379 /* Assets.xcassets */,
 				14F53CA9260676B000C4B379 /* LaunchScreen.storyboard */,
 				14F53CAC260676B000C4B379 /* Info.plist */,
+				1416793626124E42001C2F54 /* BarCodeModel.xcdatamodeld */,
 			);
 			path = BarCodeScanner;
 			sourceTree = "<group>";
@@ -137,9 +154,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14F53CA3260676AE00C4B379 /* ViewController.swift in Sources */,
+				14F53CA3260676AE00C4B379 /* BarCodeScannerViewController.swift in Sources */,
+				1416793B26127FCC001C2F54 /* HistoryBarCodeTableViewController.swift in Sources */,
 				14F53C9F260676AE00C4B379 /* AppDelegate.swift in Sources */,
+				1416793826124E42001C2F54 /* BarCodeModel.xcdatamodeld in Sources */,
 				14F53CA1260676AE00C4B379 /* SceneDelegate.swift in Sources */,
+				141679452613DD77001C2F54 /* MyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +367,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1416793626124E42001C2F54 /* BarCodeModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1416793726124E42001C2F54 /* BarCodeModel.xcdatamodel */,
+			);
+			currentVersion = 1416793726124E42001C2F54 /* BarCodeModel.xcdatamodel */;
+			path = BarCodeModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 14F53C93260676AD00C4B379 /* Project object */;
 }
