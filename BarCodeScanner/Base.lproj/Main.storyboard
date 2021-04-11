@@ -24,50 +24,25 @@
             </objects>
             <point key="canvasLocation" x="822" y="70"/>
         </scene>
-        <!--Меню-->
+        <!--Карта-->
         <scene sceneID="IaF-JD-JNc">
             <objects>
-                <viewController id="i4s-xA-jZE" customClass="MyViewController" customModule="BarCodeScanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="i4s-xA-jZE" customClass="MapViewController" customModule="BarCodeScanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rPX-M3-aPD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1i-2B-0a0">
-                                <rect key="frame" x="192" y="433" width="30" height="30"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="cfC-CG-DkE">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add"/>
-                                <connections>
-                                    <action selector="addButton:" destination="i4s-xA-jZE" eventType="touchUpInside" id="vJK-VA-fBL"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bar Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sMB-fa-pwy">
-                                <rect key="frame" x="20" y="391" width="374" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type Bar Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="02g-gy-NRu">
-                                <rect key="frame" x="20" y="349" width="374" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01z-Th-b6L">
-                                <rect key="frame" x="190" y="471" width="35" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Read"/>
-                                <connections>
-                                    <action selector="readButton:" destination="i4s-xA-jZE" eventType="touchUpInside" id="gaf-Kg-koI"/>
-                                </connections>
-                            </button>
+                            </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JXT-xJ-xWw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Меню" image="line.horizontal.3" catalog="system" id="RJg-pu-N6B"/>
+                    <tabBarItem key="tabBarItem" title="Карта" image="map" catalog="system" id="RJg-pu-N6B"/>
                     <connections>
-                        <outlet property="barCode" destination="sMB-fa-pwy" id="yTi-2Y-D6y"/>
-                        <outlet property="typeBarCode" destination="02g-gy-NRu" id="DfL-Mb-Ah6"/>
+                        <outlet property="mapView" destination="cfC-CG-DkE" id="fOK-nT-ddP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Izp-ew-T0I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -134,7 +109,7 @@
     </scenes>
     <resources>
         <image name="clock.arrow.circlepath" catalog="system" width="128" height="110"/>
-        <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
+        <image name="map" catalog="system" width="128" height="110"/>
         <image name="штрихкод_кнопка" width="75" height="75.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

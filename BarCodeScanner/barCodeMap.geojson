@@ -1,0 +1,30 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+     {
+      "type": "Feature",
+      "properties": {
+        "location": "Waikiki Gateway Park",
+        "latitude": "21.283921",
+        "description": "Large than life-size bronze figure of King David Kalakaua mounted on a granite pedestal. Located at Waikiki Gateway Park.",
+        "thumb": null,
+        "credit": "Gift of the Oahu Kanyaku Imin Centennial Committee",
+        "objectid": "1991.03",
+        "creator": "Sean Browne",
+        "longitude": "-157.831661",
+        "imagefile": "http://hiculturearts.pastperfect-online.com/34250images/002/199103-3.JPG",
+        "date": "1989",
+        "discipline": "Sculpture",
+        "title": "King David Kalakaua",
+        "access": "Full"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -157.831661,
+          21.283921
+        ]
+      }
+    },
+    ]
+}

@@ -11,6 +11,8 @@ class HistoryBarCodeTableViewController: UITableViewController {
 
     var barCodeHistory: [BarCodeHistory] = []
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchData()

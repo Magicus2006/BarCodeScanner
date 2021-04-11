@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1413690026210239003184D1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141368FF26210239003184D1 /* MapViewController.swift */; };
 		1416793826124E42001C2F54 /* BarCodeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1416793626124E42001C2F54 /* BarCodeModel.xcdatamodeld */; };
 		1416793B26127FCC001C2F54 /* HistoryBarCodeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1416793A26127FCC001C2F54 /* HistoryBarCodeTableViewController.swift */; };
 		141679452613DD77001C2F54 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141679442613DD77001C2F54 /* MyViewController.swift */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		141368FF26210239003184D1 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		141369022621073D003184D1 /* barCodeMap.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = barCodeMap.geojson; sourceTree = "<group>"; };
 		1416793726124E42001C2F54 /* BarCodeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BarCodeModel.xcdatamodel; sourceTree = "<group>"; };
 		1416793A26127FCC001C2F54 /* HistoryBarCodeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryBarCodeTableViewController.swift; sourceTree = "<group>"; };
 		141679442613DD77001C2F54 /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +52,7 @@
 				1416793A26127FCC001C2F54 /* HistoryBarCodeTableViewController.swift */,
 				14F53CA2260676AE00C4B379 /* BarCodeScannerViewController.swift */,
 				141679442613DD77001C2F54 /* MyViewController.swift */,
+				141368FF26210239003184D1 /* MapViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -80,6 +84,7 @@
 				14F53CA9260676B000C4B379 /* LaunchScreen.storyboard */,
 				14F53CAC260676B000C4B379 /* Info.plist */,
 				1416793626124E42001C2F54 /* BarCodeModel.xcdatamodeld */,
+				141369022621073D003184D1 /* barCodeMap.geojson */,
 			);
 			path = BarCodeScanner;
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 				1416793826124E42001C2F54 /* BarCodeModel.xcdatamodeld in Sources */,
 				14F53CA1260676AE00C4B379 /* SceneDelegate.swift in Sources */,
 				141679452613DD77001C2F54 /* MyViewController.swift in Sources */,
+				1413690026210239003184D1 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
