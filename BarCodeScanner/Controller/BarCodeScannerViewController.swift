@@ -14,6 +14,9 @@ class BarCodeScannerViewController: UIViewController {
     var previewLayer: AVCaptureVideoPreviewLayer!
     var barCodeTextView: UITextView!
     var typeBarCodeLable: UILabel!
+    
+    
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -128,30 +131,50 @@ class BarCodeScannerViewController: UIViewController {
         present(ac, animated: true)
         captureSession = nil
     }
+    
+}
 
+// MARK: extension AVCaptureMetadataOutputObjectsDelegate
+
+extension BarCodeScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
     private func foundBarCode(code: String, type: String) {
+        
         print(code, type)
         typeBarCodeLable.text = type
         barCodeTextView.text = code
+        
+        let message = "Тип: \(type)\n Штрих код: \(code)"
+        
+        let ac = UIAlertController(title: "Штрих код", message: message, preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: "OK", style: .default) { (action) -> Void in
+            let myDelegete = UIApplication.shared.delegate as! AppDelegate
+            let context = myDelegete.persistentContainer.viewContext
+            let barCodeHistory = BarCodeHistory(context: context)
+            
+            barCodeHistory.typeBarCode = type
+            barCodeHistory.barCode = code
+            
+            myDelegete.saveContext()
+            
+            self.captureSession.startRunning()
+        }
+        ac.addAction(yesAction)
+        present(ac, animated: true)
     }
-
     
-    
-    
-    
-    
-}
-extension BarCodeScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         
-        //captureSession.stopRunning()
+        //
         if let metadataObject = metadataObjects.first {
             guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
             guard let stringValue = readableObject.stringValue else { return }
             let type = metadataObject.type
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+            captureSession.stopRunning()
             foundBarCode(code: stringValue, type: type.rawValue)
         }
+        
+        
 
         //dismiss(animated: true)
     }
